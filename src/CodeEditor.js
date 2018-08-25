@@ -5,6 +5,9 @@ class CodeEditor extends Component {
   handleChange = event => {
     this.props.colorUpdater(event)
   }
+  updateColorInput = event => {
+    console.log(event.target)
+  }
   render() {
     const {
       colorUpdater,
@@ -14,32 +17,48 @@ class CodeEditor extends Component {
       string,
       keyword,
       attribute,
-      func,
-      classFunc,
+      Function,
+      tag,
       comment,
       variable,
       number,
-      method,
-      operators,
+      supportFunction,
+      operator,
       brackets,
+      VariableAlternative,
     } = this.props.colors
+
+    const palette = Object.entries(this.props.colors)
+
     return (
-      <form>
-        <label>Background</label>
-        <input
-          type="text"
-          name="background"
-          value={background}
-          onChange={this.handleChange}
-        />
-        <label>Keyword</label>
-        <input
-          type="text"
-          name="keyword"
-          value={keyword}
-          onChange={this.handleChange}
-        />
-      </form>
+      <section>
+        <form>
+          {palette.map((scope, i) => {
+            let key = scope[0]
+            let value = scope[1]
+            let title = key.charAt(0).toUpperCase() + key.slice(1)
+
+            return (
+              <div className="input-group" key={i}>
+                <label>{title}</label>
+                <input
+                  type="color"
+                  value={value}
+                  tabindex="-1"
+                  onChange={this.updateColorInput}
+                />
+                <input
+                  type="text"
+                  name={key}
+                  value={value}
+                  onChange={this.handleChange}
+                />
+              </div>
+            )
+          })}
+          <button>Generate JSON</button> <button>Reset Values</button>
+        </form>
+      </section>
     )
   }
 }

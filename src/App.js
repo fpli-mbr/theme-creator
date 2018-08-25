@@ -13,14 +13,15 @@ class App extends Component {
       string: "#99cc99",
       keyword: "#ffeea6",
       attribute: "#ffd479",
-      func: "#ffffff",
-      classFunc: "#78aad6",
+      Function: "#ffffff",
+      tag: "#78aad6",
       comment: "#8a8a80",
       variable: "#f2777a",
       number: "#fca369",
-      method: "#d6acd6",
-      operators: "#cda869",
+      supportFunction: "#d6acd6",
+      operator: "#cda869",
       brackets: "#d3d0c8",
+      variableAlternative: "#76d4d6",
     }
     this.state = this.initialState
   }
@@ -32,13 +33,16 @@ class App extends Component {
       [name]: value,
     })
   }
+
   render() {
     return (
       <div className="container">
         <h1>Syntax Theme Creator</h1>
 
-        <CodeWindow colors={this.state} />
-        <CodeEditor colorUpdater={this.updateColors} colors={this.state} />
+        <div className="flex">
+          <CodeWindow colors={this.state} />
+          <CodeEditor colorUpdater={this.updateColors} colors={this.state} />
+        </div>
       </div>
     )
   }
