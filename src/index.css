@@ -1,0 +1,47 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  color: #232323;
+  font-size: 16px;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+pre {
+  border: 1px solid #232323;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+code {
+  font-family: Menlo, monospace;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin: 10px 0;
+}
+
+input {
+  display: block;
+  width: 300px;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #cccccc;
+  font-size: 16px;
+}
+
+input:hover {
+  border: 1px solid #b0b0b0;
+}
+
+input:focus {
+  border: 1px solid #1768CA;
+  outline: none;
+}
